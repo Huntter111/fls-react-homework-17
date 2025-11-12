@@ -1,0 +1,118 @@
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	display: none;
+	background: rgba(0, 0, 0, 0.5);
+}
+.modalContent {
+	/* border: 1px solid red; */
+	padding: 25px;
+	background: white;
+	border-radius: 20px;
+	min-width: 250px;
+	display: flex;
+	flex-direction: column;
+}
+.modal.active {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.modalBody {
+	display: flex;
+	flex-direction: column;
+	margin-top: 32px;
+	margin-bottom: 32px;
+	row-gap: 32px;
+}
+.modalClose {
+	margin-left: auto;
+	background-color: #ccaae9;
+}
+label {
+	display: flex;
+	flex-direction: column;
+	row-gap: 8px;
+}
+label > input {
+	min-width: 21.875rem;
+}
+
+/* НОВІ СТИЛІ: кращий вигляд для label, input, select та кнопки */
+.modalContent label {
+	font-weight: 600;
+	color: #111827; /* dark slate */
+	font-size: 0.95rem;
+	margin-bottom: 4px;
+}
+
+.modalContent .field {
+	display: flex;
+	flex-direction: column;
+}
+
+.modalContent input,
+.modalContent select,
+.modalContent textarea {
+	padding: 0.6rem 0.9rem;
+	border: 1px solid #e5e7eb; /* gray-200 */
+	border-radius: 0.5rem;
+	background: #ffffff;
+	color: #111827;
+	font-size: 0.95rem;
+	transition: border-color 150ms ease, box-shadow 150ms ease, background 150ms ease;
+	outline: none;
+	box-shadow: none;
+}
+
+.modalContent input::placeholder {
+	color: #9ca3af; /* gray-400 */
+}
+
+.modalContent input:focus,
+.modalContent select:focus,
+.modalContent textarea:focus {
+	border-color: #6366f1; /* indigo-500 */
+	box-shadow: 0 6px 18px rgba(99, 102, 241, 0.08);
+	background: #ffffff;
+}
+
+.modalContent select {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-image: linear-gradient(45deg, transparent 50%, #374151 50%),
+		linear-gradient(135deg, #374151 50%, transparent 50%);
+	background-position: calc(100% - 18px) calc(1em + 2px), calc(100% - 13px) calc(1em + 2px);
+	background-size: 6px 6px, 6px 6px;
+	background-repeat: no-repeat;
+	padding-right: 2.4rem;
+}
+
+.modalContent .modalBody {
+	row-gap: 1rem; /* трохи компактніше */
+}
+
+.modalContent button[type='submit'] {
+	padding: 0.6rem 1rem;
+	background: linear-gradient(180deg, #6366f1, #4f46e5);
+	color: #fff;
+	border: none;
+	border-radius: 0.6rem;
+	cursor: pointer;
+	font-weight: 700;
+	transition: transform 120ms ease, opacity 120ms ease;
+}
+
+.modalContent button[type='submit']:hover:not([disabled]) {
+	transform: translateY(-1px);
+	opacity: 0.98;
+}
+
+.modalContent button[disabled] {
+	opacity: 0.6;
+	cursor: not-allowed;
+}

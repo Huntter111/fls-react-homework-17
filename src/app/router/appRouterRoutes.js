@@ -1,0 +1,12 @@
+/* @vite-ignore */
+import { frontRoutes } from '../../shared/config/routes/frontRoutes'
+
+const pagesList = Object.keys(frontRoutes.pages)
+
+export const appRouterRoutes = pagesList.map((page) => ({
+	...frontRoutes.pages[page],
+	lazy: async () => ({
+		Component: (await import(`../../pages/${page}`)).default,
+	}),
+}))
+console.log('🚀 ~ appRouterRoutes:', appRouterRoutes)
