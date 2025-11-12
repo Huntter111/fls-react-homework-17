@@ -17,7 +17,7 @@ export function CommentItem({ comment }) {
 		}
 	}
 	const user = useSelector(selectAuthUser)
-	const isVisible = user.role !== roles.admin
+	const isVisibleComment = user?.role === roles?.admin
 
 	return (
 		<div
@@ -33,14 +33,15 @@ export function CommentItem({ comment }) {
 				<b>{comment.authorName}</b>: {comment.text}
 				{isDeleting && <span style={{ marginLeft: 8, color: '#888' }}>Видаляється...</span>}
 			</span>
-			<button
-				onClick={handleDelete}
-				disabled={isDeleting}
-				style={{ marginLeft: 10, visibility: isVisible ? 'hidden' : 'visible' }}
-			>
-				Видалити
-			</button>
+			{isVisibleComment && (
+				<button
+					onClick={handleDelete}
+					disabled={isDeleting}
+					style={{ marginLeft: 10 }}
+				>
+					Видалити
+				</button>
+			)}
 		</div>
 	)
 }
-// ...existing code...

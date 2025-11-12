@@ -16,9 +16,6 @@ export function PostList() {
 	if (error) return <div>Помилка: {error.toString()}</div>
 	const posts = data.items || []
 
-	// console.log('==posts')
-	// console.log(data)
-
 	const totalPages = data?.totalPages || 1
 	const onEdit = (post) => {
 		setEditingPost(post)
