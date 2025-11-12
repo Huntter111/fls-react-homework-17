@@ -1,7 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { setCredentials, logout } from '@/features/auth/api/authSlice'
 const baseQuery = fetchBaseQuery({
-	baseUrl: 'http://localhost:4000/api/',
+	// baseUrl: 'http://localhost:4000/api/',
+	baseUrl: 'https://fls-react-homework-17-backend.onrender.com/api',
 	credentials: 'include',
 	prepareHeaders: (headers, { getState }) => {
 		const token = getState().auth?.accessToken

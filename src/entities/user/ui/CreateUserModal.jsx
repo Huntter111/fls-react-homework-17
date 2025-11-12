@@ -25,29 +25,25 @@ const CreateUserModal = ({ visible, setVisible }) => {
 		}
 	}
 	const [userData, setUserData] = useState(initialUserData)
-	console.log('🚀 ~ CreateUserModal ~ userData:', userData)
+
 	const handleChange = (e) => {
 		setUserData((prevData) => ({ ...prevData, [e.target.name]: e.target.value }))
 	}
 	return (
 		<div
 			className={rootClasses.join(' ')}
-			onClick={() => setVisible(false)}
-		>
+			onClick={() => setVisible(false)}>
 			<div
 				className={cl.modalContent}
-				onClick={(e) => e.stopPropagation()}
-			>
+				onClick={(e) => e.stopPropagation()}>
 				<button
 					onClick={() => setVisible(false)}
-					className={cl.modalClose}
-				>
+					className={cl.modalClose}>
 					X
 				</button>
 				<form
 					action=""
-					onSubmit={handleCreateUser}
-				>
+					onSubmit={handleCreateUser}>
 					<div className={cl.modalBody}>
 						<label>
 							Input Email
@@ -86,8 +82,7 @@ const CreateUserModal = ({ visible, setVisible }) => {
 							value={userData.role}
 							name="role"
 							id=""
-							onChange={handleChange}
-						>
+							onChange={handleChange}>
 							<option value="user">user</option>
 							<option value="admin">admin</option>
 							<option value="manager">manager</option>
@@ -95,8 +90,7 @@ const CreateUserModal = ({ visible, setVisible }) => {
 					</div>
 					<button
 						type="submit"
-						disabled={isCreatingUser}
-					>
+						disabled={isCreatingUser}>
 						{isCreatingUser ? 'Creating' : 'Create'}
 					</button>
 				</form>
