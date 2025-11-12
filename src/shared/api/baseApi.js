@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { setCredentials, logout } from '@/features/auth/api/authSlice'
-const API_BASE = import.meta.env.VITE_API_URL || 'https://fls-react-homework-17-backend.onrender.com'
+
+const API_BASE = import.meta.env.VITE_API_URL || 'https://fls-react-homework-17-backend.onrender.com/api'
 
 const baseQuery = fetchBaseQuery({
-	baseUrl: `${API_BASE}/api`,
+	baseUrl: API_BASE,
 	credentials: 'include',
 	prepareHeaders: (headers, { getState }) => {
 		const token = getState().auth?.accessToken
